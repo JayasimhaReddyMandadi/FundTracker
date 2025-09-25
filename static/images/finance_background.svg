@@ -1,0 +1,37 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue to purple gradient background -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2962FF" />
+      <stop offset="100%" stop-color="#7B1FA2" />
+    </linearGradient>
+    
+    <!-- Finance-related patterns -->
+    <pattern id="graph-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse" patternTransform="rotate(10)">
+      <path d="M0 80 Q 25 70, 50 85 T 100 75" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/>
+      <path d="M0 40 Q 25 50, 50 35 T 100 45" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="100%" height="100%" fill="url(#bg-gradient)"/>
+  
+  <!-- Finance graph pattern overlay -->
+  <rect width="100%" height="100%" fill="url(#graph-pattern)"/>
+  
+  <!-- Abstract financial symbols -->
+  <g opacity="0.15" fill="#ffffff">
+    <circle cx="300" cy="200" r="50"/>
+    <circle cx="1600" cy="800" r="70"/>
+    <path d="M500,300 L600,200 L700,250 L800,150 L900,300" stroke="#ffffff" stroke-width="5" fill="none"/>
+    <path d="M1200,700 L1300,650 L1400,750 L1500,600" stroke="#ffffff" stroke-width="5" fill="none"/>
+    
+    <!-- Stock chart icons -->
+    <g transform="translate(200, 500) scale(0.5)">
+      <path d="M0,0 L30,30 L60,10 L90,40 L120,20 L150,50" stroke="#ffffff" stroke-width="8" fill="none"/>
+    </g>
+    <g transform="translate(1400, 300) scale(0.7)">
+      <path d="M0,50 L30,20 L60,40 L90,10 L120,30 L150,0" stroke="#ffffff" stroke-width="8" fill="none"/>
+    </g>
+  </g>
+</svg>

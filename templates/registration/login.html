@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login - MutualFundTracker{% endblock %}
+
+{% block content %}
+<div class="row g-0 vh-100">
+    <!-- Left Promotional Section (same as Register for brand consistency) -->
+    <div class="col-md-6 bg-gradient" style="background: linear-gradient(135deg, #0056b3, #003366);">
+        <div class="text-white d-flex flex-column justify-content-center align-items-center h-100 p-5">
+            <div class="mb-3">
+                <span class="bg-primary text-white rounded-circle p-3 d-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                         class="bi bi-graph-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                              d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 
+                              5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 
+                              5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 
+                              0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 
+                              0 0 1 .704-.07Z"></path>
+                    </svg>
+                </span>
+            </div>
+            <h1 class="display-4 fw-bold text-center">Welcome Back</h1>
+            <p class="lead text-center mb-4">Log in to manage your mutual fund investments and stay on top of your portfolio.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <div class="glass-card">
+                    <i class="bi bi-speedometer2"></i>
+                    <p>Fast Access</p>
+                </div>
+                <div class="glass-card">
+                    <i class="bi bi-shield-lock-fill"></i>
+                    <p>Secure Login</p>
+                </div>
+                <div class="glass-card">
+                    <i class="bi bi-bar-chart-fill"></i>
+                    <p>Smart Insights</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Login Form Section -->
+    <div class="col-md-6 d-flex justify-content-center align-items-center p-5" 
+         style="background: rgba(255,255,255,0.6); backdrop-filter: blur(12px);">
+        <div class="card shadow-lg w-100" style="max-width: 420px; border-radius: 16px;">
+            <div class="card-body p-4">
+                <h2 class="text-center mb-3">Sign In</h2>
+                <p class="text-center text-muted mb-4">Access your account securely</p>
+                <form method="post">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label text-muted small">Email or Username</label>
+                        <input type="text" name="username" class="form-control" id="id_username" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3 position-relative">
+                        <label for="id_password" class="form-label text-muted small">Password</label>
+                        <input type="password" name="password" class="form-control" id="id_password" placeholder="Enter your password" required>
+                        <div class="d-flex justify-content-end mt-1">
+                            <a href="#" class="small text-decoration-none">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100 py-2 mb-3">
+                        Login <span class="bi bi-arrow-right"></span>
+                    </button>
+
+                    <div class="text-center">
+                        <p class="text-muted mb-2">Or sign in with</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <button type="button" class="btn btn-outline-danger rounded-pill">
+                                <i class="bi bi-google"></i> Google
+                            </button>
+                            <button type="button" class="btn btn-outline-primary rounded-pill">
+                                <i class="bi bi-facebook"></i> Facebook
+                            </button>
+                        </div>
+                        <p class="mt-3 text-muted small">
+                            Don’t have an account? 
+                            <a href="{% url 'register' %}" class="text-decoration-none">Register here</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
